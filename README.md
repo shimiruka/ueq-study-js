@@ -1,1 +1,1 @@
-# ueq-js-study
+# ueq-study-js
