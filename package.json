@@ -1,0 +1,21 @@
+{
+  "name": "ueq-study-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/redimpulz/ueq-study-js.git",
+  "author": "Ken Takahashi <takaken@redimpulz.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-v8": "^0.34.1",
+    "jest": "^29.6.2",
+    "vitest": "^0.34.1"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "vitest"
+  },
+  "volta": {
+    "node": "18.17.1",
+    "yarn": "1.22.19"
+  }
+}
