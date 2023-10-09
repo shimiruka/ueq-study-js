@@ -1,7 +1,7 @@
 import { test, expect, describe, beforeEach } from "vitest";
 import { screen } from "@testing-library/dom";
 
-import { main } from "./script";
+import { main } from "../../dom/script";
 
 beforeEach(() => {
   document.body.innerHTML = `
@@ -12,7 +12,7 @@ beforeEach(() => {
   `;
 });
 
-describe("", () => {
+describe("DOM操作の問題", () => {
   test("リンクが正しく追加されている", () => {
     main();
     const a = screen.queryByTestId<HTMLAnchorElement>("a");
