@@ -1,7 +1,11 @@
-import { test, expect, describe, beforeEach } from "vitest";
+import { test, expect, describe, beforeEach, vi } from "vitest";
 import { screen, waitFor } from "@testing-library/dom";
 
 import { main } from "../../event/script";
+
+const requestUrl = "https://jsonplaceholder.typicode.com/posts";
+const titleValue = "title";
+const contentValue = "content";
 
 beforeEach(() => {
   document.body.innerHTML = `
@@ -23,21 +27,16 @@ beforeEach(() => {
   <div data-testid="result-title" id="result-title"></div>
   <div data-testid="result-content" id="result-content"></div>
   `;
+  const formTitle = screen.queryByTestId<HTMLInputElement>("form-title");
+  const formContent = screen.queryByTestId<HTMLInputElement>("form-content");
+  if (formTitle) formTitle.value = titleValue;
+  if (formContent) formContent.value = contentValue;
 });
 
 describe("DOM操作とイベントの問題", () => {
   test("正しい挙動になっている", async () => {
     main();
-    const titleValue = "title";
-    const contentValue = "content";
-
-    const formTitle = screen.queryByTestId<HTMLInputElement>("form-title");
-    const formContent = screen.queryByTestId<HTMLInputElement>("form-content");
-    if (formTitle) formTitle.value = titleValue;
-    if (formContent) formContent.value = contentValue;
-
     screen.queryByTestId("submit")?.click();
-
     await waitFor(() => {
       expect(screen.queryByTestId("result-id")?.textContent).toEqual(
         "created post ID is 101"
@@ -48,6 +47,24 @@ describe("DOM操作とイベントの問題", () => {
       expect(screen.queryByTestId("result-content")?.textContent).toEqual(
         `created post content is ${contentValue}`
       );
+    });
+  });
+
+  test("POSTリクエストが正しく行われている", async () => {
+    global.fetch = vi.fn();
+    main();
+    screen.queryByTestId("submit")?.click();
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalledWith(requestUrl, {
+        method: "POST",
+        body: JSON.stringify({
+          title: titleValue,
+          content: contentValue,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      });
     });
   });
 });
