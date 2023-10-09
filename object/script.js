@@ -27,8 +27,7 @@ export const func2 = () => {
   return personStr;
 };
 
-export const func3 = () => {
-  const jsonStr = `
+const jsonStr = `
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -53,6 +52,8 @@ export const func3 = () => {
     }
   }
   `;
+
+export const func3 = () => {
   const user = JSON.parse(jsonStr);
   return `${user.name},${user.email}${user.company.name}`;
 };
