@@ -5,26 +5,11 @@ const person = {
 };
 
 export const func1 = () => {
-  const personDetail = {
-    ...person,
-    gender: "male",
-    interests: [
-      {
-        name: "programming",
-        emoji: "💻",
-      },
-      {
-        name: "motorcycle",
-        emoji: "🏍",
-      },
-    ],
-  };
-  return personDetail;
+  // ここに回答
 };
 
 export const func2 = () => {
-  const personStr = JSON.stringify(person);
-  return personStr;
+  // ここに回答
 };
 
 const jsonStr = `
@@ -54,6 +39,5 @@ const jsonStr = `
   `;
 
 export const func3 = () => {
-  const user = JSON.parse(jsonStr);
-  return `${user.name},${user.email}${user.company.name}`;
+  // ここに回答
 };
