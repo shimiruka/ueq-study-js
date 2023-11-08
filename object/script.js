@@ -5,11 +5,11 @@ const person = {
 };
 
 export const func1 = () => {
-  // ここに回答
+  // このコードを完成させてください
 };
 
 export const func2 = () => {
-  // ここに回答
+  // このコードを完成させてください
 };
 
 const jsonStr = `
@@ -39,5 +39,5 @@ const jsonStr = `
   `;
 
 export const func3 = () => {
-  // ここに回答
+  // このコードを完成させてください
 };

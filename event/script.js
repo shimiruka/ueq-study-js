@@ -1,5 +1,5 @@
 export const main = () => {
-  // ここに回答
+  // このコードを完成させてください
 };
 
 window.addEventListener("load", main);
