@@ -55,5 +55,5 @@ const jsonStr = `
 
 export const func3 = () => {
   const user = JSON.parse(jsonStr);
-  return `${user.name},${user.email}${user.company.name}`;
+  return `${user.name},${user.email},${user.company.name}`;
 };

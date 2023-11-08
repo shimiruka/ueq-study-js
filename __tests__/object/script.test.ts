@@ -32,6 +32,6 @@ describe("オブジェクトの問題2", () => {
 
 describe("オブジェクトの問題3", () => {
   test("正しい結果が返ってきている", () => {
-    expect(func3()).toEqual("Leanne Graham,Sincere@april.bizRomaguera-Crona");
+    expect(func3()).toEqual("Leanne Graham,Sincere@april.biz,Romaguera-Crona");
   });
 });
