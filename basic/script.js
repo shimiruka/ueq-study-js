@@ -9,14 +9,14 @@ export const func1 = (n) => {
 // 条件分岐・データ型の問題
 export const func2 = (n) => {
   if (!Number.isInteger(n) || n <= 0) {
-    return 'error';
+    return "error";
   }
   if (n % 3 == 0 && n % 5 == 0) {
-    return 'FizzBuzz';
+    return "FizzBuzz";
   } else if (n % 3 == 0) {
-    return 'Fizz';
+    return "Fizz";
   } else if (n % 5 == 0) {
-    return 'Buzz';
+    return "Buzz";
   } else {
     return n.toString();
   }
