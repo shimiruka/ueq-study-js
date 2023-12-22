@@ -5,11 +5,24 @@ const person = {
 };
 
 export const func1 = () => {
-  // このコードを完成させてください
+  return {
+    ...person,
+    gender: "male",
+    interests: [
+      {
+        name: "programming",
+        emoji: "💻",
+      },
+      {
+        name: "motorcycle",
+        emoji: "🏍",
+      },
+    ],
+  };
 };
 
 export const func2 = () => {
-  // このコードを完成させてください
+  return JSON.stringify(person);
 };
 
 const jsonStr = `
@@ -39,5 +52,6 @@ const jsonStr = `
   `;
 
 export const func3 = () => {
-  // このコードを完成させてください
+  const user = JSON.parse(jsonStr);
+  return `${user.name},${user.email},${user.company.name}`;
 };
